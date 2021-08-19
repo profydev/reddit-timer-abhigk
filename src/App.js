@@ -1,18 +1,20 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Switch, Route,
+  BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
-import Home from './components/Home';
+import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
+import Home from './components/Home';
 import Search from './components/Search';
 import GlobalStyles from './GlobalStyles';
+import theme from './theme';
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-        <Header />
+       <Header />
         <Switch>
           <Route path="/search">
             <Search />
@@ -22,7 +24,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 }
 
