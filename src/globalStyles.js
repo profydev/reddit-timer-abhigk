@@ -7,6 +7,10 @@ ${normalize}
     font-family: 'Bitter', serif;
     font-family: 'Montserrat', sans-serif; 
     }
+    html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 `;
 
 export default GlobalStyles;
