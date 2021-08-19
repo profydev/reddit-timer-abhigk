@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
@@ -14,7 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-       <Header />
+        <Header />
         <Switch>
           <Route path="/search">
             <Search />
