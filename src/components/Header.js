@@ -155,7 +155,7 @@ function Header() {
                 <Link to="/">Home</Link>
               </li> */}
               <li>
-                <Link to="/search">Search</Link>
+                <Link to="/search/javascript">Search</Link>
               </li>
               <li>
                 <Link to="/#how-it-works">How it works</Link>

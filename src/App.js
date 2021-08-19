@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/search">
+          <Route path="/search/javascript">
             <Search />
           </Route>
           <Route path="/">
