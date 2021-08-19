@@ -5,7 +5,7 @@ import {
 import Home from './components/Home';
 import Header from './components/Header';
 import Search from './components/Search';
-import GlobalStyles from './globalStyles';
+import GlobalStyles from './GlobalStyles';
 
 function App() {
   return (
