@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import Search from './components/Search';
 import GlobalStyles from './GlobalStyles';
@@ -23,6 +24,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
