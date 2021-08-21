@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import sign from '../assets/sign.svg';
 
 const StyledFooter = styled.footer`
-    padding: 0 5rem;
+   
+    width: 100%; /* tries to take up the complete space */
+  max-width: 940px; /* prevents growing larger than 940px */
+  margin: auto; /* centers footer on screens wider than 940px */
+  padding: 0 20px; /* ensures some horizontal space on small devices */
     ul{
         display:flex;
     flex-direction:row;
@@ -25,6 +29,9 @@ const StyledFooter = styled.footer`
         }
         ul li:not(:last-child){
             margin-bottom: 1rem;
+        }
+        ul li:not(:nth-child(2)){
+          flex:1;
         }
     }
 
