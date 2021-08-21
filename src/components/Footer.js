@@ -41,7 +41,7 @@ function Footer() {
   return (
     <StyledFooter>
       <ul>
-        <li><Link to="https://profy.dev/employers">profy.dev</Link></li>
+        <li><a href="https://profy.dev/employers">profy.dev</a></li>
         <li>
           <Link to="/"><img src={sign} alt="footer logo" /></Link>
         </li>
