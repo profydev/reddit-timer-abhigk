@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import sign from '../assets/sign.svg';
 
 const StyledFooter = styled.footer`
-    padding: 0 5rem;
+   
+    width: 100%; /* tries to take up the complete space */
+  max-width: 940px; /* prevents growing larger than 940px */
+  margin: auto; /* centers footer on screens wider than 940px */
+  padding: 0 20px; /* ensures some horizontal space on small devices */
     ul{
         display:flex;
     flex-direction:row;
@@ -34,7 +38,7 @@ function Footer() {
   return (
     <StyledFooter>
       <ul>
-        <li><Link to="https://ooloo.io/employers">profy.dev</Link></li>
+        <li><a href="https://profy.dev/employers">profy.dev</a></li>
         <li>
           <Link to="/"><img src={sign} alt="footer logo" /></Link>
         </li>
