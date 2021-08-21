@@ -60,7 +60,7 @@ function Hero() {
         <StyledHeadingH1>No reactions to your reddit posts?</StyledHeadingH1>
         { /* eslint-disable-next-line max-len */ }
         <StyledSubtitle> Great timing, great results! Find the best time to post on your subreddit. </StyledSubtitle>
-        <StyledHeroBtn type="button">SHOW ME THE BEST TIME</StyledHeroBtn>
+        <Link to="/search/javascript"><StyledHeroBtn type="button">SHOW ME THE BEST TIME</StyledHeroBtn></Link>
         <StyledRedditText to="/search/javascript">r/javascript</StyledRedditText>
         <Link to="/search/javascript"><HeroImg src={heatmap} alt="heatmap" /></Link>
       </StyledHeroSection>
