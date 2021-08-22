@@ -6,7 +6,7 @@ import sign from '../assets/sign.svg';
 const StyledFooter = styled.footer`
    
     width: 100%; /* tries to take up the complete space */
-  max-width: 940px; /* prevents growing larger than 940px */
+  /* max-width: 940px;  prevents growing larger than 940px */
   margin: auto; /* centers footer on screens wider than 940px */
   padding: 0 20px; /* ensures some horizontal space on small devices */
     ul{
