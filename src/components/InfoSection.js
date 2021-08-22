@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -29,10 +30,10 @@ const StyledUl = styled.ul`
     margin-bottom: 6em;
 `;
 
-function InfoSection() {
+function InfoSection({ refWorks, refAbout }) {
   return (
     <StyledWrapper>
-      <StyledTitle>
+      <StyledTitle id="how-it-works" ref={refWorks}>
         How it works
       </StyledTitle>
       <StyledUl>
@@ -40,14 +41,12 @@ function InfoSection() {
         <li>The data is visualized in a heatmap grouped by weekday and hour of the day.</li>
         <li>See immediately when to submit your reddit post.</li>
       </StyledUl>
-      <StyledTitle>
+      <StyledTitle id="about" ref={refAbout}>
         About
       </StyledTitle>
       <p>
         This app was created during a course on
-        {' '}
-        <a href="https://profy.dev ">profy.dev</a>
-        {' '}
+        <a href="https://profy.dev">profy.dev</a>
         { /* eslint-disable-next-line max-len */ }
         with the goal to implement a pixel-perfect real-world application with professional workflows and tools like Kanban, ClickUp, Figma, GitHub, pull requests and code reviews.
         <a href="https://profy.dev/employers"> Click here for more information.</a>
@@ -56,5 +55,19 @@ function InfoSection() {
     </StyledWrapper>
   );
 }
+
+InfoSection.propTypes = {
+  refWorks: PropTypes.shape({
+    current: PropTypes.instanceOf(Element),
+  }),
+  refAbout: PropTypes.shape({
+    current: PropTypes.instanceOf(Element),
+  }),
+};
+
+InfoSection.defaultProps = {
+  refWorks: null,
+  refAbout: null,
+};
 
 export default InfoSection;

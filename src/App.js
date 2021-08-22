@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
@@ -11,17 +11,28 @@ import GlobalStyles from './GlobalStyles';
 import theme from './theme';
 
 function App() {
+  const refWorks = useRef(null);
+  const refAbout = useRef(null);
+
+  const scrollToWorks = () => {
+    refWorks.current.scrollIntoView();
+  };
+
+  const scrollToAbout = () => {
+    refAbout.current.scrollIntoView();
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-        <Header />
+        <Header scrollToWorks={scrollToWorks} scrollToAbout={scrollToAbout} />
         <Switch>
           <Route path="/search/javascript">
             <Search />
           </Route>
           <Route path="/">
-            <Home />
+            <Home refWorks={refWorks} refAbout={refAbout} />
           </Route>
         </Switch>
         <Footer />

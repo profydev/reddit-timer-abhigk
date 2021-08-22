@@ -126,7 +126,7 @@ Menu.defaultProps = {
   isClicked: false,
 };
 
-function Header() {
+function Header({ scrollToWorks, scrollToAbout }) {
   const [btnClicked, setBtnClicked] = useState(false);
 
   function handleClick() {
@@ -158,10 +158,10 @@ function Header() {
                 <Link to="/search/javascript">Search</Link>
               </li>
               <li>
-                <Link to="/#how-it-works">How it works</Link>
+                <Link to="/#how-it-works" onClick={scrollToWorks}>How it works</Link>
               </li>
               <li>
-                <Link to="/#about">About</Link>
+                <Link to="/#about" onClick={scrollToAbout}>About</Link>
               </li>
             </ul>
           </nav>
@@ -171,5 +171,19 @@ function Header() {
     </>
   );
 }
+
+Header.propTypes = {
+  scrollToWorks: PropTypes.func,
+  scrollToAbout: PropTypes.func,
+};
+
+Header.defaultProps = {
+  scrollToWorks: () => {
+
+  },
+  scrollToAbout: () => {
+
+  },
+};
 
 export default Header;
