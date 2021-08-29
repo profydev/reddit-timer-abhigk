@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Header scrollToWorks={scrollToWorks} scrollToAbout={scrollToAbout} />
         <Switch>
-          <Route path="/search/javascript">
+          <Route path="/search/:subreddit">
             <Search />
           </Route>
           <Route path="/">
