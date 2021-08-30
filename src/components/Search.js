@@ -2,8 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  StyledWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
+  StyledWrapper as GlobalWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
 } from './GlobalStyledComponents';
+
+const StyledWrapper = styled(GlobalWrapper)`
+  width: 100%;
+  max-width: 778px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const StyledInput = styled.input`
     margin:0 .5rem;
