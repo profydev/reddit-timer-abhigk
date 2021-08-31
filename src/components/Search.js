@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   StyledWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
 } from './GlobalStyledComponents';
+import fetchPosts from '../Api';
+import Spinner from './Spinner';
 
 const StyledInput = styled.input`
     margin:0 .5rem;
@@ -29,10 +32,20 @@ const StyledSearchBtn = styled(StyledHeroBtn)`
 function Search() {
   const { subreddit } = useParams();
   const [searchInput, setSearchInput] = useState(subreddit);
+  const [isLoading, setIsLoading] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
   const history = useHistory();
+
+  const fetchAllPosts = async (sub) => {
+    setIsLoading(true);
+    const AllPosts = await fetchPosts(sub);
+    setAllPosts(AllPosts.data.children);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     setSearchInput(subreddit);
+    fetchAllPosts(subreddit);
   }, [subreddit]);
 
   function handleInput(e) {
@@ -54,6 +67,8 @@ function Search() {
           <StyledInput type="text" name="search-form" value={searchInput} onChange={handleInput} />
           <StyledSearchBtn type="submit" value="submit">Search</StyledSearchBtn>
         </form>
+        {isLoading && <Spinner />}
+        {console.log('All posts data', allPosts)}
       </StyledHeroSection>
     </StyledWrapper>
   );
