@@ -30,10 +30,13 @@ const StyledLabel = styled.label`
 `;
 
 const StyledSearchBtn = styled(StyledHeroBtn)`
-      
       width: 6rem;
       height: 2.5rem;
       margin-bottom:0;
+`;
+
+const StyledForm = styled.form`
+      ${'' /* margin-top: 1.2rem; */}
 `;
 
 function Search() {
@@ -59,11 +62,11 @@ function Search() {
     <StyledWrapper>
       <StyledHeroSection>
         <StyledHeadingH1>Find the best time for the subreddit</StyledHeadingH1>
-        <form onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledLabel htmlFor="search-form">r/</StyledLabel>
           <StyledInput type="text" name="search-form" value={searchInput} onChange={handleInput} />
           <StyledSearchBtn type="submit" value="submit">Search</StyledSearchBtn>
-        </form>
+        </StyledForm>
       </StyledHeroSection>
     </StyledWrapper>
   );
