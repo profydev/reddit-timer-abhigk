@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 
 import Logo from '../assets/logo.svg';
@@ -158,10 +160,10 @@ function Header({ scrollToWorks, scrollToAbout }) {
                 <Link to="/search/javascript">Search</Link>
               </li>
               <li>
-                <Link to="/#how-it-works" onClick={scrollToWorks}>How it works</Link>
+                <HashLink to="/#how-it-works">How it works</HashLink>
               </li>
               <li>
-                <Link to="/#about" onClick={scrollToAbout}>About</Link>
+                <HashLink to="/#about">About</HashLink>
               </li>
             </ul>
           </nav>
