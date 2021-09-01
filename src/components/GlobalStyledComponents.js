@@ -11,7 +11,7 @@ const StyledHeroSection = styled.section`
 `;
 
 const StyledHeadingH1 = styled.h1`
-     font-family:bitter;
+     font-family:Bitter;
         font-size: 2.3rem;
         margin-top: .8rem;
         margin-bottom:.5rem;

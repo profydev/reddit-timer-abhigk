@@ -3,10 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  StyledWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
+  StyledWrapper as GlobalWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
 } from './GlobalStyledComponents';
 import fetchPosts from '../Api';
 import Spinner from './Spinner';
+
+const StyledWrapper = styled(GlobalWrapper)`
+  width: 100%;
+  max-width: 778px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const StyledInput = styled.input`
     margin:0 .5rem;
@@ -23,7 +33,6 @@ const StyledLabel = styled.label`
 `;
 
 const StyledSearchBtn = styled(StyledHeroBtn)`
-      
       width: 6rem;
       height: 2.5rem;
       margin-bottom:0;
