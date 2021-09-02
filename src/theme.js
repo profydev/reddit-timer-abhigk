@@ -2,6 +2,7 @@ const theme = {
   color: {
     text: '#93918f',
     accentColor: '#FDB755',
+    accentColorLight: '#f4ce98',
   },
   font: {
     family: {

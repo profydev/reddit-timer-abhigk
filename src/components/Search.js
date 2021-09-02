@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   StyledWrapper as GlobalWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
 } from './GlobalStyledComponents';
+import getAllPosts from '../Api';
+import Spinner from './Spinner';
 
 const StyledWrapper = styled(GlobalWrapper)`
   width: 100%;
@@ -35,17 +38,23 @@ const StyledSearchBtn = styled(StyledHeroBtn)`
       margin-bottom:0;
 `;
 
-const StyledForm = styled.form`
-      ${'' /* margin-top: 1.2rem; */}
-`;
-
 function Search() {
   const { subreddit } = useParams();
   const [searchInput, setSearchInput] = useState(subreddit);
+  const [isLoading, setIsLoading] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
   const history = useHistory();
+
+  const fetchAllPosts = async (sub) => {
+    setIsLoading(true);
+    const AllPosts = await getAllPosts(sub);
+    setAllPosts(AllPosts);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     setSearchInput(subreddit);
+    fetchAllPosts(subreddit);
   }, [subreddit]);
 
   function handleInput(e) {
@@ -62,11 +71,14 @@ function Search() {
     <StyledWrapper>
       <StyledHeroSection>
         <StyledHeadingH1>Find the best time for the subreddit</StyledHeadingH1>
-        <StyledForm onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <StyledLabel htmlFor="search-form">r/</StyledLabel>
           <StyledInput type="text" name="search-form" value={searchInput} onChange={handleInput} />
           <StyledSearchBtn type="submit" value="submit">Search</StyledSearchBtn>
-        </StyledForm>
+        </form>
+        {isLoading && <Spinner />}
+        length:
+        {console.log(allPosts)}
       </StyledHeroSection>
     </StyledWrapper>
   );
