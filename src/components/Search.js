@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {
   StyledWrapper as GlobalWrapper, StyledHeroSection, StyledHeadingH1 as h1, StyledHeroBtn,
 } from './GlobalStyledComponents';
-import fetchPosts from '../Api';
+import getAllPosts from '../Api';
 import Spinner from './Spinner';
 
 const StyledWrapper = styled(GlobalWrapper)`
@@ -47,8 +47,8 @@ function Search() {
 
   const fetchAllPosts = async (sub) => {
     setIsLoading(true);
-    const AllPosts = await fetchPosts(sub);
-    setAllPosts(AllPosts.data.children);
+    const AllPosts = await getAllPosts(sub);
+    setAllPosts(AllPosts);
     setIsLoading(false);
   };
 
@@ -77,7 +77,8 @@ function Search() {
           <StyledSearchBtn type="submit" value="submit">Search</StyledSearchBtn>
         </form>
         {isLoading && <Spinner />}
-        {console.log('All posts data', allPosts)}
+        length:
+        {console.log(allPosts)}
       </StyledHeroSection>
     </StyledWrapper>
   );
